@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
     defineProps<{
         poster: string,
         title: string,
@@ -11,11 +10,16 @@
 
 <template>
     <div class="movieItem">
-        <img :src="poster" />
+        <img width="300" height="400" :src="poster" />
         <h3>{{ title }}</h3>
-        <div>{{ year }}</div>
+        <div class="movieItem--year">{{ year }}</div>
     </div>
 </template>
 
 <style scoped lang="scss">
+.movieItem {
+    &--year {
+        margin: 0;
+    }
+}
 </style>
