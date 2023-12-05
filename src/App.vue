@@ -5,12 +5,12 @@ const router = useRouter()
 </script>
 
 <template>
-  <h1 @click="router.push('/')">뀨!!!</h1>
+  <h1 class="home-icon" @click="router.push('/')">뀨!!!</h1>
   <RouterView />
 </template>
 
 <style scoped lang="scss">
-h1, body {
+.home-icon, body {
     display: flex;
     flex-direction: column;
     align-items: center;
