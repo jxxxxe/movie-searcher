@@ -31,7 +31,7 @@ watch(searchWord, () => {
 async function request(page=1, start=1){
     isLoading.value = true
 
-    const res = await fetch(`https://omdbapi.com/?apikey=7035c60c&s=${searchWord.value}&page=${page}`)
+    const res = await fetch(`https://omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&s=${searchWord.value}&page=${page}`)
     const result = await res.json()
 
     movies.value = result.Search

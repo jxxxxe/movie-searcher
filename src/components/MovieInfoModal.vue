@@ -12,7 +12,7 @@ let result:movieInfoType = reactive({})
 
 ;(async () => {
     isLoading.value = true
-    const res = await fetch(`https://omdbapi.com?apikey=7035c60c&i=${props.imdbID}&plot=full`)
+    const res = await fetch(`https://omdbapi.com?apikey=${import.meta.env.VITE_API_KEY}&i=${props.imdbID}&plot=full`)
     result = await res.json()
 
     isLoading.value = false
