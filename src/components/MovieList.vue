@@ -10,6 +10,7 @@ import { useRoute } from 'vue-router'
 import MovieItem from './MovieItem.vue'
 import MovieSearchBar from './MovieSearchBar.vue';
 import MovieInfoModal from './MovieInfoModal.vue';
+import LoadingPage from './LoadingPage.vue';
 import MoviePagination from './MoviePagination.vue';
 
 const route = useRoute()
@@ -56,6 +57,7 @@ function closeDetail() {
 </script>
 
 <template>
+<LoadingPage v-show="isLoading"/>
 <div class="modal-background" v-if="isDetailShwon" @click="closeDetail">
     <MovieInfoModal :imdbID="currentMovieId" @click.stop="" @close-modal="closeDetail"/>
 </div>
