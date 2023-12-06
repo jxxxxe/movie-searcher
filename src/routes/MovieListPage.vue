@@ -7,11 +7,11 @@ export interface Movie {
 }
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router'
-import MovieItem from './MovieItem.vue'
-import MovieSearchBar from './MovieSearchBar.vue';
-import MovieInfoModal from './MovieInfoModal.vue';
-import LoadingPage from './LoadingPage.vue';
-import MoviePagination from './MoviePagination.vue';
+import MovieItem from '../components/MovieItem.vue';
+import MovieSearchBar from '../components/MovieSearchBar.vue';
+import MovieInfoModal from '../components/MovieInfoModal.vue';
+import LoadingScene from '../components/LoadingScene.vue';
+import MoviePagination from '../components/MoviePagination.vue';
 
 const route = useRoute()
 let isLoading = ref(false)
@@ -57,13 +57,13 @@ function closeDetail() {
 </script>
 
 <template>
-<LoadingPage v-show="isLoading"/>
+<LoadingScene v-show="isLoading"/>
 <div class="modal-background" v-if="isDetailShwon" @click="closeDetail">
-    <MovieInfoModal :imdbID="currentMovieId" @click.stop="" @close-modal="closeDetail"/>
+    <MovieInfoModal :imdbID="currentMovieId" @close-modal="closeDetail"/>
 </div>
 <MovieSearchBar v-model="searchWord" />
 <div class="movieList">
-    <MovieItem v-if="!isLoading" v-for="movie in movies" :key="movie.imdbID" 
+    <MovieItem class="movie-item" v-if="!isLoading" v-for="movie in movies" :key="movie.imdbID" 
         :poster="movie.Poster"
         :title="movie.Title"
         :year="movie.Year"
@@ -81,8 +81,12 @@ function closeDetail() {
 <style scoped lang="scss">
 .movieList {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 250px);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    gap: 30px;
 }
+
 .modal-background {
     position: fixed;
     left: 0;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import movieInfoType from '../types/movieInfoType.ts'
-import LoadingPage from './LoadingPage.vue';
+import LoadingScene from './LoadingScene.vue';
 
 const props = defineProps<{
     imdbID: string
@@ -21,8 +21,8 @@ let result:movieInfoType = reactive({})
 </script>
 
 <template>
-<LoadingPage v-show="isLoading"/>
-<div class="movie-modal" v-if="!isLoading">
+<LoadingScene v-show="isLoading"/>
+<div class="movie-modal" v-if="!isLoading" @click.stop>
     <div class="movie-modal-header">
         <button class="movie-modal-header-button" @click="$emit('close-modal')">X</button>
     </div>
@@ -98,6 +98,7 @@ let result:movieInfoType = reactive({})
     padding: 0 20px;
     box-sizing: border-box;
     overflow: scroll;
+    border: gray solid 1px;
 }
 .movie-modal-header {
     display: flex;

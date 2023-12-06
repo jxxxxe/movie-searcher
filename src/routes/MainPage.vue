@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MovieSearchBar from './MovieSearchBar.vue';
+import MovieSearchBar from '../components/MovieSearchBar.vue';
 </script>
 
 <template>
