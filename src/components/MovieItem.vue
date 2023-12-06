@@ -9,17 +9,21 @@
 </script>
 
 <template>
-    <div class="movieItem">
-        <img width="300" height="400" :src="poster" />
+    <div class="movie-item">
+        <img width="250" height="300" :src="poster" />
         <h3>{{ title }}</h3>
         <div class="movieItem--year">{{ year }}</div>
     </div>
 </template>
 
 <style scoped lang="scss">
-.movieItem {
-    &--year {
-        margin: 0;
+.movie-item {
+    h3 {
+        margin: 5px 0;
+    }
+    color: white;
+    &:hover {
+        cursor: pointer;
     }
 }
 </style>

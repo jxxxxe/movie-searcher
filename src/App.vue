@@ -5,17 +5,23 @@ const router = useRouter()
 </script>
 
 <template>
-  <h1 class="home-icon" @click="router.push('/')">뀨!!!</h1>
+  <div class="home-title">
+    <h1 @click="router.push('/')">🎬 Movie Searcher! 🌮</h1>
+  </div>
   <RouterView />
 </template>
 
 <style scoped lang="scss">
-.home-icon, body {
+.home-title {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    h1 {
+      color: white;
+      &:hover {
+        cursor: pointer;
+      }
+    }
 }
 
 </style>

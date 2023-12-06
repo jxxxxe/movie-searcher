@@ -25,13 +25,13 @@ function range(start: number, end: number) {
 <template>
     <div class="pages">
         <span v-if="currentPage > 10" :class="`page page_prev`" @click="clickPage(pageStart-10)">
-            Prev
+            {{ '<<' }}
         </span>
         <span v-for="i in range(pageStart, pageEnd)" :class="`page ${i === currentPage ? 'page-current' : ''}`" @click="clickPage(i, pageStart)">
             {{ i }}
         </span>
         <span v-if="pageEnd<Math.ceil(totalCount/10)" :class="`page page_next`" @click="clickPage(pageEnd+1)">
-            Next
+            >>
         </span>
     </div>
 </template>
@@ -40,6 +40,10 @@ function range(start: number, end: number) {
 .pages {
     display: flex;
     justify-content: center;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 21px;
+    font-weight: 100;
 
     .page {
         margin: 10px;
@@ -48,7 +52,7 @@ function range(start: number, end: number) {
         }
 
         &-current {
-            font-weight: bold;
+            font-weight: 900;
         }
     }   
 }
