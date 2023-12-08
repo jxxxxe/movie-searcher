@@ -14,9 +14,14 @@ import LoadingScene from '../components/LoadingScene.vue'
 import MoviePagination from '../components/MoviePagination.vue'
 
 const route = useRoute()
+const { VITE_API_KEY } = import.meta.env
+
 let isLoading = ref(false)
+
 let movies = ref([] as Movie[])
+
 const searchWord = ref(route.query.name as string)
+
 let isDetailShwon = ref(false)
 let currentMovieId = ref('')
 
@@ -32,9 +37,7 @@ async function request(page = 1, start = 1) {
   isLoading.value = true
 
   const res = await fetch(
-    `https://omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&s=${
-      searchWord.value
-    }&page=${page}`
+    `https://omdbapi.com/?apikey=${VITE_API_KEY}&s=${searchWord.value}&page=${page}`
   )
   const result = await res.json()
 

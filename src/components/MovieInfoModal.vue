@@ -9,13 +9,12 @@ const props = defineProps<{
 
 let isLoading = ref(false)
 let result: movieInfoType = reactive({})
+const { VITE_API_KEY } = import.meta.env
 
 ;(async () => {
   isLoading.value = true
   const res = await fetch(
-    `https://omdbapi.com?apikey=${import.meta.env.VITE_API_KEY}&i=${
-      props.imdbID
-    }&plot=full`
+    `https://omdbapi.com?apikey=${VITE_API_KEY}&i=${props.imdbID}&plot=full`
   )
   result = await res.json()
 
