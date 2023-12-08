@@ -5,7 +5,7 @@ export interface Movie {
   Year: number
   imdbID: string
 }
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import MovieItem from '../components/MovieItem.vue'
 import MovieSearchBar from '../components/MovieSearchBar.vue'
@@ -29,6 +29,10 @@ let totalCount = ref(0)
 let currentPage = ref(1)
 let startPage = ref(1)
 
+onMounted(() => {
+  request()
+})
+
 watch(searchWord, () => {
   request()
 })
@@ -49,8 +53,6 @@ async function request(page = 1, start = 1) {
 
   isLoading.value = false
 }
-
-request()
 
 function showDetail(movieID: string) {
   currentMovieId.value = movieID

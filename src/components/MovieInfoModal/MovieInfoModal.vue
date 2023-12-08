@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import movieInfoType from '../../types/movieInfoType'
 import LoadingScene from '../LoadingScene.vue'
 import MovieInfoModalInfoItem from './MovieInfoModalInfoItem.vue'
@@ -12,7 +12,7 @@ let isLoading = ref(false)
 let result: movieInfoType = reactive({})
 const { VITE_API_KEY } = import.meta.env
 
-;(async () => {
+onMounted(async () => {
   isLoading.value = true
   const res = await fetch(
     `https://omdbapi.com?apikey=${VITE_API_KEY}&i=${props.imdbID}&plot=full`
@@ -20,7 +20,7 @@ const { VITE_API_KEY } = import.meta.env
   result = await res.json()
 
   isLoading.value = false
-})()
+})
 </script>
 
 <template>
