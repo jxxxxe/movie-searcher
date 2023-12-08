@@ -9,7 +9,7 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import MovieItem from '../components/MovieItem.vue'
 import MovieSearchBar from '../components/MovieSearchBar.vue'
-import MovieInfoModal from '../components/MovieInfoModal.vue'
+import MovieInfoModal from '../components/MovieInfoModal/MovieInfoModal.vue'
 import LoadingScene from '../components/LoadingScene.vue'
 import MoviePagination from '../components/MoviePagination.vue'
 
