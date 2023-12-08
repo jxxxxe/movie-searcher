@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 </script>
@@ -13,15 +13,14 @@ const router = useRouter()
 
 <style scoped lang="scss">
 .home-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h1 {
-      color: white;
-      &:hover {
-        cursor: pointer;
-      }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: white;
+    &:hover {
+      cursor: pointer;
     }
+  }
 }
-
 </style>

@@ -1,11 +1,11 @@
-{ 
-	"extends": [
-		"eslint:recommended", 
-		"plugin:@typescript-eslint/recommended", 
-		"plugin: prettier/recommended",
-		"plugin:vue/vue3-recommended"
-	],
-	"parserOptions": { 
-		"parser": "@typescript-eslint/parser" 
-	}
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin: prettier/recommended",
+    "plugin:vue/vue3-recommended"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  }
 }
